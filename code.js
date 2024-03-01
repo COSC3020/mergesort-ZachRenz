@@ -3,14 +3,6 @@ function mergesort(array = []) {
     if (array.length <= 1){
         return array;
     }
-    if (array.length == 3){
-        if (array[0] > array[1]){ //sorts the one pair
-            [array[0], array[1]] = [array[1], array[0]];
-        }
-        if (array[2] < array[1] && array[2] < array[0]) [array[0], array[2]] = [array[2], array[0]]; [array[1], array[2]] = [array[2], array[1]];
-        if (array[2] < array[1]) [array[1], array[2]] = [array[2], array[1]];
-        return array;
-    }
     size = 2; 
     sorted = false;
 
@@ -24,7 +16,7 @@ function mergesort(array = []) {
 
     //console.log(array); // Debugging script
 
-    while (sorted == false){ // Merges the pairs, and then the subarrays of size 4, etc.
+    while (sorted == false && array.length != 3){ // Merges the pairs, and then the subarrays of size 4, etc.
         for (iters = 1; iters <= Math.floor(array.length/(2*size)); iters++){
             subsorted = false;
             i = (iters - 1)*(2*size) + 0;
