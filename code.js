@@ -16,14 +16,14 @@ function mergesort(array = []) {
 
     //console.log(array); // Debugging script
 
-    while (sorted == false && array.length != 3){ // Merges the pairs, and then the subarrays of size 4, etc.
+    while (size <= Math.floor(array.length/2) && array.length != 3){ // Merges the pairs, and then the subarrays of size 4, etc.
         for (iters = 1; iters <= Math.floor(array.length/(2*size)); iters++){
-            subsorted = false;
+            subArrMerged = false;
             i = (iters - 1)*(2*size) + 0;
             j = i + size;
-            while(subsorted == false){
+            while(subArrMerged == false){
                 if (i == j){
-                    subsorted = true;
+                    subArrMerged = true;
                     break;
                 }
                 else if (array[i]<=array[j]){
@@ -42,10 +42,6 @@ function mergesort(array = []) {
             }
         }
         size = size + size;
-        if (size > Math.floor(array.length/2)){
-            sorted = true;
-            break;
-        }
     }
 
     //console.log(array); //Debugging Script
@@ -53,11 +49,11 @@ function mergesort(array = []) {
     if (size < array.length){ // Merges the residual, if any
         i = 0;
         j = i + size;
-        subsorted = false;
-        while(subsorted == false){
+        subArrMerged = false;
+        while(subArrMerged == false){
 
             if (i == j){
-                subsorted = true;
+                subArrMerged = true;
                 break;
             }
             else if (array[i]<=array[j]){
