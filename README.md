@@ -34,7 +34,7 @@ function merge(i, j, size, array = []){ // (n/2) * (n/2) => n^2
         }
         else if (array[i]>array[j]){
             let k = j + 1;
-            while(k < array.length && array[k] < array[i] && k <= (j-1+size)){ // 2((n-1)/2 + (n-2)/2 ...) => n
+            while(array[k] < array[i] && k <= (j-1+size)){ // 2((n-1)/2 + (n-2)/2 ...) => n
                 k = k + 1;
             }
             k = k - 1;
@@ -51,4 +51,4 @@ The inside while loop runs `k = k + 1` to insert the first number at the end of 
                         \       /
                     `[*, *, *, *, *]`
 ```
-And we'll iterate over every node of this tree, or $log(n)$ So our overall complexity is $\Theta(n^3log(n))$
+And we'll iterate over every node of this tree, or $log(n)$ So our overall complexity is $\Theta(n^2log(n))$

@@ -27,7 +27,7 @@ function merge(i, j, size, array = []){
         }
         else if (array[i]>array[j]){
             let k = j + 1;
-            while(k < array.length && array[k] < array[i] && k <= (j-1+size)){
+            while(array[k] < array[i] && k <= (j-1+size)){
                 k = k + 1;
             }
             k = k - 1;
