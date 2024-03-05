@@ -22,7 +22,7 @@ markdown file.
 
 To test this I use an array with a size that requires us to merge a residual, with numbers sorted in reverse. So, for each subarray we need to switch the numbers exactly, i.e. for a list like `[*, *, *, *, *]` we need to switch the subarrays `[[*,*][*,*], *]` exactly. For the function `merge()`:
 ``` javascript
-function merge(i, j, size, array = []){
+function merge(i, j, size, array = []){ // (n/2) * (n/2) => n^2
     let subArrMerged = false;
     while(subArrMerged == false){
         if (i == j){
@@ -34,7 +34,7 @@ function merge(i, j, size, array = []){
         }
         else if (array[i]>array[j]){
             let k = j + 1;
-            while(k < array.length && array[k] < array[i] && k <= (j-1+size)){
+            while(k < array.length && array[k] < array[i] && k <= (j-1+size)){ // 2((n-1)/2 + (n-2)/2 ...) => n
                 k = k + 1;
             }
             k = k - 1;
